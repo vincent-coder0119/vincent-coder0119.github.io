@@ -30,7 +30,6 @@
 
       // 處理各種登入身份
       function statusChangeCallback(response) {
-        console.log(JSON.stringify(response));
         console.log(response);
         var target = document.getElementById("FB_STATUS_1"),
           html = "";
@@ -40,6 +39,7 @@
           html = "已登入 FB，並加入 Gugu 應用程式<br/>";
 
           FB.api("/me?fields=id,name,email", function (response) {
+            console.log(JSON.stringify(response));
             console.log(response);
             html += "會員暱稱：" + response.name + "<br/>";
             html += "會員 email：" + response.email + "<br/>";
