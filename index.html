@@ -30,6 +30,7 @@
 
       // 處理各種登入身份
       function statusChangeCallback(response) {
+        console.log(JSON.stringify(response));
         console.log(response);
         var target = document.getElementById("FB_STATUS_1"),
           html = "";
