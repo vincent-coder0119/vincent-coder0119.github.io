@@ -18,20 +18,6 @@
   </head>
 
   <body>
-    <script>
-      let url = new URL(location.href);
-      let stockid = url.searchParams.get("stockId");
-      let stockCode = {
-        symbol: stockid,
-        colorTheme: "light",
-        isTransparent: false,
-        largeChartUrl: "",
-        displayMode: "regular",
-        width: "100%",
-        height: "100%",
-        locale: "zh_TW"
-      };
-    </script>
     <!-- TradingView Widget BEGIN -->
     <div class="tradingview-widget-container" id="tradingview">
       <!-- <script
@@ -54,6 +40,19 @@
     </div>
     <script>
       window.onload = function() {
+        let url = new URL(location.href);
+        let stockid = url.searchParams.get("stockId");
+        let stockCode = {
+          symbol: stockid,
+          colorTheme: "light",
+          isTransparent: false,
+          largeChartUrl: "",
+          displayMode: "regular",
+          width: "100%",
+          height: "100%",
+          locale: "zh_TW"
+        };
+
         var t = document.getElementById("tradingview");
         var jst = document.createElement("script");
         jst.setAttribute("type", "text/javascript");
@@ -64,12 +63,23 @@
           "https://s3.tradingview.com/external-embedding/embed-widget-financials.js"
         );
         t.appendChild(jst);
-        // window.parent.postMessage(
-        //   {
-            
-        //   },
-        //   "*"
-        // );
+        // console.log(t);
+        // setTimeout(() => {
+        //   var iframe = t.getElementsByTagName('iframe');
+        //   console.log(iframe);
+
+        //   var parent = iframe[0].contentWindow.document.getElementsByClassName(
+        //     "tv-embed-widget-wrapper__body"
+        //   );
+        //   console.log(parent);
+        //   var children = parent[0].querySelectorAll("a");
+        //   console.log(children);
+        //   if (children.length > 0) {
+        //     children.forEach(e => {
+        //       // e.remove();
+        //     });
+        //   }
+        // }, 3000);
       };
     </script>
     <!-- TradingView Widget END -->
